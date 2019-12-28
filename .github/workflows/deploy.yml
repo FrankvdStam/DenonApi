@@ -25,6 +25,3 @@ jobs:
       run: |
         dotnet pack src\DenonLib\DenonLib.csproj --configuration Release
         dotnet nuget push src\DenonLib\bin\Release\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_PUBLISH}} --no-symbols true
-		
-		
-	
