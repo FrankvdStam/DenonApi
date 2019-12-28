@@ -61,5 +61,34 @@ namespace DenonLib
         void ResetChannels();
 
         #endregion
+
+        #region Mute ========================================================================================================
+        /// <summary>
+        /// Mute the receiver
+        /// </summary>
+        void Mute();
+
+        /// <summary>
+        /// Unmute the receiver
+        /// </summary>
+        void UnMute();
+
+        /// <summary>
+        /// Returns true if the receiver is muted
+        /// </summary>
+        bool IsMute();
+        #endregion
+
+        #region Input source ========================================================================================================
+        /// <summary>
+        /// Select the given input source
+        /// </summary>
+        void SelectInputSource(InputSource s);
+
+        /// <summary>
+        /// Gets the status of the currently active input source
+        /// </summary>
+        void GetSelectedInputSourceStatus();
+        #endregion
     }
 }

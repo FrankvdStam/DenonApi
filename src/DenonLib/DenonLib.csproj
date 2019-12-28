@@ -8,6 +8,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/FrankvdStam/DenonApi/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FrankvdStam/DenonApi/</RepositoryUrl>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 </Project>

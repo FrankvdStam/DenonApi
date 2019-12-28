@@ -164,7 +164,101 @@ namespace DenonLib
         }
         #endregion
 
+        #region Mute ========================================================================================================
+        public void Mute()
+        {
+            SendMessage("MUON");
+        }
+
+        public void UnMute()
+        {
+            SendMessage("MUOFF");
+        }
+
+        public bool IsMute()
+        {
+            SendMessage("MU?", out string result);
+            return result.StartsWith("MUON");
+        }
+        #endregion
+
+        #region Input source ========================================================================================================
+        public void SelectInputSource(InputSource s)
+        {
+            SendMessage("SI" + InputSourceToStringLookup[s]);
+        }
+
+        public void GetSelectedInputSourceStatus()
+        {
+            SendMessage("SI?", out string result);
+        }
+        #endregion
+
         #region Util ========================================================================================================
+        /// <summary>
+        /// Convert a decimal to a string format that denon devices understand
+        /// </summary>
+        private static string DecimalToVolumeString(decimal d)
+        {
+            string result = "";
+            //Round to nearest half
+            d = Math.Round(d * 2, MidpointRounding.AwayFromZero) / 2;
+
+            //Start with a zero if the value has only 1 decimal
+            if (d < 10)
+            {
+                result += "0";
+            }
+            result += d.ToString();
+            result = result.Replace(".", string.Empty);
+            return result;
+        }
+
+        // example formats: CVFL 50\r -> 50 / CVFL 745\r -> 74.5
+        /// <summary>
+        /// Cleans and parses a device volume string to decimal
+        /// </summary>
+        private static decimal VolumeStringToDecimal(string data)
+        {
+            int? index = null;
+            //Cleanup: Get first index of decimal
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (char.IsDigit(data[i]))
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == null)
+            {
+                throw new Exception($"Couldn't parse volume returned from the device: {data}");
+            }
+
+            data = data.Substring(index.Value, data.Length - index.Value);
+
+            //Check if there are 3 decimals to parse
+            if (data.Length > 3)
+            {
+
+            }
+
+            if (!decimal.TryParse(data.Substring(0, 2), out decimal result))
+            {
+                throw new Exception($"Couldn't parse volume returned from the device: {data}");
+            }
+
+            //Find the 3rd possible digit, containing a halfstep
+            if (data.Length >= 3 && char.IsDigit(data[2]))
+            {
+                result += 0.5M;
+            }
+            return result;
+        }
+        #endregion
+
+        #region Lookup
         private static readonly Dictionary<Channel, string> ChannelToStringLookup = new Dictionary<Channel, string>()
         {
             { Channel.FrontLeft             , "FL"  },
@@ -235,67 +329,42 @@ namespace DenonLib
             { "TS"  , Channel.TopSurround         },
         };
 
-        /// <summary>
-        /// Convert a decimal to a string format that denon devices understand
-        /// </summary>
-        private static string DecimalToVolumeString(decimal d)
+        private static readonly Dictionary<InputSource, string> InputSourceToStringLookup = new Dictionary<InputSource, string>()
         {
-            string result = "";
-            //Round to nearest half
-            d = Math.Round(d * 2, MidpointRounding.AwayFromZero) / 2;
+            { InputSource.Phono         , "PHONO"       },
+            { InputSource.Cd            , "CD"          },
+            { InputSource.Tuner         , "TUNER"       },
+            { InputSource.Dvd           , "DVD"         },
+            { InputSource.BlueRay       , "BD"          },
+            { InputSource.Tv            , "TV"          },
+            { InputSource.SatCbl        , "SAT/CBL"     },
+            { InputSource.MediaPlayer   , "MPLAY"       },
+            { InputSource.Game          , "GAME"        },
+            { InputSource.HdRadio       , "HDRADIO"     },
+            { InputSource.Net           , "NET"         },
+            { InputSource.Pandora       , "PANDORA"     },
+            { InputSource.SiriusXm      , "SIRIUSXM"    },
+            { InputSource.Spotify       , "SPOTIFY"     },
+            { InputSource.LastFm        , "LASTFM"      },
+            { InputSource.Flickr        , "FLICKR"      },
+            { InputSource.IRadio        , "IRADIO"      },
+            { InputSource.Server        , "SERVER"      },
+            { InputSource.Favorites     , "FAVORITES"   },
+            { InputSource.Aux1          , "AUX1"        },
+            { InputSource.Aux2          , "AUX2"        },
+            { InputSource.Aux3          , "AUX3"        },
+            { InputSource.Aux4          , "AUX4"        },
+            { InputSource.Aux5          , "AUX5"        },
+            { InputSource.Aux6          , "AUX6"        },
+            { InputSource.Aux7          , "AUX7"        },
+            { InputSource.BlueTooth     , "BT"          },
+            { InputSource.UsbIpod       , "USB/IPOD"    },
+            { InputSource.Usb           , "USB"         },
+            { InputSource.Ipd           , "IPD"         },
+            { InputSource.Irp           , "IRP"         },
+            { InputSource.Fvp           , "FVP"         },
+        };
 
-            //Start with a zero if the value has only 1 decimal
-            if (d < 10)
-            {
-                result += "0";
-            }
-            result += d.ToString();
-            result = result.Replace(".", string.Empty);
-            return result;
-        }
-
-        // example formats: CVFL 50\r -> 50 / CVFL 745\r -> 74.5
-        /// <summary>
-        /// Cleans and parses a device volume string to decimal
-        /// </summary>
-        public static decimal VolumeStringToDecimal(string data)
-        {
-            int? index = null;
-            //Cleanup: Get first index of decimal
-            for (int i = 0; i < data.Length; i++)
-            {
-                if (char.IsDigit(data[i]))
-                {
-                    index = i;
-                    break;
-                }
-            }
-
-            if (index == null)
-            {
-                throw new Exception($"Couldn't parse volume returned from the device: {data}");
-            }
-
-            data = data.Substring(index.Value, data.Length - index.Value);
-
-            //Check if there are 3 decimals to parse
-            if (data.Length > 3)
-            {
-
-            }
-
-            if (!decimal.TryParse(data.Substring(0, 2), out decimal result))
-            {
-                throw new Exception($"Couldn't parse volume returned from the device: {data}");
-            }
-
-            //Find the 3rd possible digit, containing a halfstep
-            if (data.Length >= 3 && char.IsDigit(data[2]))
-            {
-                result += 0.5M;
-            }
-            return result;
-        }
         #endregion
 
         #region IDisposable Support
@@ -321,3 +390,4 @@ namespace DenonLib
         #endregion
     }
 }
+
