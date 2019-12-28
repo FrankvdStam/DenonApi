@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DenonLib", "src\DenonLib\DenonLib.csproj", "{054CFECC-3631-48FB-BE18-375E1F45D77A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli", "src\Cli\Cli.csproj", "{FB04264B-63A4-49F0-A4F4-D8D1FB7BFAC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenonService", "src\DenonService\DenonService.csproj", "{CEEFAC42-C947-4025-9F39-2E9247BA5085}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{054CFECC-3631-48FB-BE18-375E1F45D77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{054CFECC-3631-48FB-BE18-375E1F45D77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{054CFECC-3631-48FB-BE18-375E1F45D77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{054CFECC-3631-48FB-BE18-375E1F45D77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB04264B-63A4-49F0-A4F4-D8D1FB7BFAC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB04264B-63A4-49F0-A4F4-D8D1FB7BFAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB04264B-63A4-49F0-A4F4-D8D1FB7BFAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB04264B-63A4-49F0-A4F4-D8D1FB7BFAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84F21916-2B61-488E-91B8-14C253CE3649}
+	EndGlobalSection
+EndGlobal
