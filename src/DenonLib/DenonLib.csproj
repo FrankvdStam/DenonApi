@@ -5,7 +5,7 @@
     <Authors>Frank v.d. Stam</Authors>
     <Company />
     <Description>Library to control Denon AVR devices over TCP.</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/FrankvdStam/DenonApi/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FrankvdStam/DenonApi/</RepositoryUrl>
   </PropertyGroup>
