@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Frank v.d. Stam</Authors>
+    <Company />
+    <Description>Library to control Denon AVR devices over TCP.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/FrankvdStam/DenonApi/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FrankvdStam/DenonApi/</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
