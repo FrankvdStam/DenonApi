@@ -23,8 +23,11 @@ namespace DenonService
                     s.WhenStopped(tc => tc.Stop());
                     s.WhenShutdown(tc => tc.Shutdown());
                 });
+
+                x.EnableShutdown();
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
+                //x.UseNLog();
 
                 x.SetDescription("Denon service - controlling your denon receiver");                  
                 x.SetDisplayName("Denon service");                                 

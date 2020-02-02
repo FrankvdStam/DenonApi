@@ -11,6 +11,8 @@ namespace Cli
         {
             IDenonDevice denonDevice = new TcpDenonDevice("192.168.1.65", 23);
 
+            denonDevice.PowerStandby();
+            denonDevice.PowerOn();
             denonDevice.SelectInputSource(InputSource.SatCbl);
             denonDevice.GetSelectedInputSourceStatus();
 
