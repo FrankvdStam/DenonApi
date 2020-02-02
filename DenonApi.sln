@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cli", "src\Cli\Cli.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenonService", "src\DenonService\DenonService.csproj", "{CEEFAC42-C947-4025-9F39-2E9247BA5085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpForward", "TcpForward\TcpForward.csproj", "{55781095-4A2A-490A-A96D-9ACB837D2E1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TcpForward", "src\TcpForward\TcpForward.csproj", "{8DF8BCAE-58BC-4605-B8B6-73967F9640E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEEFAC42-C947-4025-9F39-2E9247BA5085}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55781095-4A2A-490A-A96D-9ACB837D2E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55781095-4A2A-490A-A96D-9ACB837D2E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55781095-4A2A-490A-A96D-9ACB837D2E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55781095-4A2A-490A-A96D-9ACB837D2E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF8BCAE-58BC-4605-B8B6-73967F9640E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF8BCAE-58BC-4605-B8B6-73967F9640E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF8BCAE-58BC-4605-B8B6-73967F9640E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF8BCAE-58BC-4605-B8B6-73967F9640E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
