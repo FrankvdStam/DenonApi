@@ -31,7 +31,20 @@ TcpForward can be used to forward all commands over TCP. It has no knowledge abo
 Example usage:
 
 	C:\projects\DenonApi\src\TcpForward\bin\Debug\netcoreapp3.0>tcpforward.exe 192.168.1.65 23 PWON
-	Parsed input as ip: 192.168.1.65, port: 23 and command: PWON
+	Parsed input as ip: 192.168.1.65, port: 23, command: PWON, wait for response: False, write to file:
 
-	C:\projects\DenonApi\src\TcpForward\bin\Debug\netcoreapp3.0>tcpforward.exe 192.168.1.65 23 MVUP
-	Parsed input as ip: 192.168.1.65, port: 23 and command: MVUP
+	Parsed input as ip: 192.168.1.65, port: 23, command: MVUP, wait for response: True, write to file: C:\Temp\denon.txt
+	MVMAX 91: MV55
+	File doesn't exist - not writing.
+
+	C:\projects\DenonApi\src\TcpForward\bin\Debug\netcoreapp3.0>tcpforward.exe 192.168.1.65 23 MVUP w C:\Temp\denon.txt
+	Parsed input as ip: 192.168.1.65, port: 23, command: MVUP, wait for response: True, write to file: C:\Temp\denon.txt
+	MVMAX 91: MV555
+
+	C:\projects\DenonApi\src\TcpForward\bin\Debug\netcoreapp3.0>tcpforward.exe 192.168.1.65 23 MVUP w C:\Temp\denon.txt
+	Parsed input as ip: 192.168.1.65, port: 23, command: MVUP, wait for response: True, write to file: C:\Temp\denon.txt
+	MVMAX 91: MV56
+
+	C:\projects\DenonApi\src\TcpForward\bin\Debug\netcoreapp3.0>tcpforward.exe 192.168.1.65 23 MVUP w C:\Temp\denon.txt
+	Parsed input as ip: 192.168.1.65, port: 23, command: MVUP, wait for response: True, write to file: C:\Temp\denon.txt
+	MVMAX 91: MV565
