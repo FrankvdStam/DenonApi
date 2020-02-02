@@ -2,7 +2,7 @@
   "profiles": {
     "TcpForward": {
       "commandName": "Project",
-      "commandLineArgs": "192.168.1.65 23 \"MV DOWN\""
+      "commandLineArgs": "192.168.1.65 23 \"MV?\" w"
     }
   }
 }

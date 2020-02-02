@@ -18,7 +18,7 @@ namespace TcpForward
 
             bool waitForResponse = args.Contains("w");
             string? filePath = null;
-            if (args.Length > 3)
+            if (args.Length > 4)
             {
                 filePath = args[4];
             }
