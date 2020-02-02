@@ -14,9 +14,8 @@ namespace TcpForward
             string ip = args[0];
             int port = int.Parse(args[1]);
             string command = args[2];
-           
 
-            Console.WriteLine($"Parsed input as ip: {ip}, port: {port} amd command: {command}");
+            Console.WriteLine($"Parsed input as ip: {ip}, port: {port} and command: {command}");
 
             //Setup connection to device
             TcpClient tcpClient = new TcpClient(ip, port);
