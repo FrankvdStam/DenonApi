@@ -3,7 +3,7 @@
 ![](https://github.com/FrankvdStam/DenonApi/workflows/Build/badge.svg)
 
 
-Lightweight library for controlling Denon AVR devices via TCP.
+Lightweight library to control Denon AVR devices via TCP.
 Consider everything unstable in this library.
 
 Example usage:
